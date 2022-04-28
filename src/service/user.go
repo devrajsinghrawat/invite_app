@@ -8,10 +8,10 @@ import (
 	"os"
 	"time"
 
+	"github.com/devrajsinghrawat/invite_app/src/logging"
+	"github.com/devrajsinghrawat/invite_app/src/model"
+	"github.com/devrajsinghrawat/invite_app/src/repo"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/girishg4t/app_invite_service/pkg/logging"
-	"github.com/girishg4t/app_invite_service/pkg/model"
-	"github.com/girishg4t/app_invite_service/pkg/repo"
 	"go.uber.org/zap"
 )
 

@@ -8,12 +8,12 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/girishg4t/app_invite_service/pkg/logging"
-	"github.com/girishg4t/app_invite_service/pkg/middleware"
-	"github.com/girishg4t/app_invite_service/pkg/model"
-	random "github.com/girishg4t/app_invite_service/pkg/rand"
-	"github.com/girishg4t/app_invite_service/pkg/repo"
-	httputils "github.com/girishg4t/app_invite_service/pkg/utils"
+	"github.com/devrajsinghrawat/invite_app/src/logging"
+	"github.com/devrajsinghrawat/invite_app/src/middleware"
+	"github.com/devrajsinghrawat/invite_app/src/model"
+	random "github.com/devrajsinghrawat/invite_app/src/rand"
+	"github.com/devrajsinghrawat/invite_app/src/repo"
+	httputils "github.com/devrajsinghrawat/invite_app/src/utils"
 	"github.com/gorilla/mux"
 	"go.uber.org/zap"
 )

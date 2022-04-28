@@ -34,14 +34,14 @@ $ go run main.go
 1. User tried to generate token without login
 
 ```
-request :-> curl --location --request GET 'http://localhost:8081/api/v1/genToken'
+request :-> curl --location --request GET 'http://localhost:8080/api/v1/genToken'
 response:-> token not present
 ```
 
 2. User has logged-in with the username and password inserted in default db script
 
 ```
-request :->  curl --location --request POST 'http://localhost:8081/login' \
+request :->  curl --location --request POST 'http://localhost:8080/login' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "username" : "admin",
@@ -58,7 +58,7 @@ response:->  {
 3. User the above token to access the private routes, To generate the token
 
 ```
-request :-> curl --location --request GET 'http://localhost:8081/api/v1/genToken' \
+request :-> curl --location --request GET 'http://localhost:8080/api/v1/genToken' \
 --header 'Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2Mjk2MDQyMjQsInJvbGUiOiJBRE1JTiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.bSSPrJF1bubv2IcMsMSfE7S4_-TUVGy8i8EkT_cQ15A'
 
 
@@ -68,14 +68,14 @@ response:-> "PpPRm3p9GyN"
 4. Validate the app token
 
 ```
-request :->  curl --location --request GET 'http://localhost:8081/validatetoken/GDVTL8ipbZS'
+request :->  curl --location --request GET 'http://localhost:8080/validatetoken/GDVTL8ipbZS'
 response:->   true
 ```
 
 5. Check if error message is sent when invalid app token is passed
 
 ```
-request :-> curl --location --request GET 'http://localhost:8081/validatetoken/sdgfasdg'
+request :-> curl --location --request GET 'http://localhost:8080/validatetoken/sdgfasdg'
 response:->  record not found , 400
 
 ```
@@ -83,14 +83,14 @@ response:->  record not found , 400
 6. Check if length of app token is incorrect
 
 ```
-request :->  curl --location --request GET 'http://localhost:8081/validatetoken/12345'
+request :->  curl --location --request GET 'http://localhost:8080/validatetoken/12345'
 response:-> invalid app token, 400
 ```
 
 7. Get all token Active and Inactive
 
 ```
-request :-> curl --location --request GET 'http://localhost:8081/api/v1/getAllToken' \
+request :-> curl --location --request GET 'http://localhost:8080/api/v1/getAllToken' \
 --header 'Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2Mjk2MzEyMzgsInJvbGUiOiJBRE1JTiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.LZRjU6W_gdbscmjfNfzWuqecYpvCDPxWV2nnzJpZqBs'
 
 response:->  [
@@ -121,7 +121,7 @@ response:->  [
 8. Deactivate the token
 
 ```
-request :->  curl --location --request PATCH 'http://localhost:8081/api/v1/invalidateToken' \
+request :->  curl --location --request PATCH 'http://localhost:8080/api/v1/invalidateToken' \
 --header 'Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2Mjk2MzEyMzgsInJvbGUiOiJBRE1JTiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.LZRjU6W_gdbscmjfNfzWuqecYpvCDPxWV2nnzJpZqBs' \
 --header 'Content-Type: application/json' \
 --data-raw '{

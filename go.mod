@@ -1,4 +1,4 @@
-module github.com/girishg4t/app_invite_service
+module github.com/devrajsinghrawat/invite_app
 
 go 1.16
 

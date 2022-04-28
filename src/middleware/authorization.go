@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/devrajsinghrawat/invite_app/src/model"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/girishg4t/app_invite_service/pkg/model"
 )
 
 type contextKey string

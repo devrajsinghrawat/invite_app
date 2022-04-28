@@ -7,12 +7,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/girishg4t/app_invite_service/pkg/db"
-	"github.com/girishg4t/app_invite_service/pkg/logging"
-	"github.com/girishg4t/app_invite_service/pkg/middleware"
-	"github.com/girishg4t/app_invite_service/pkg/model"
-	"github.com/girishg4t/app_invite_service/pkg/repo"
-	"github.com/girishg4t/app_invite_service/pkg/service"
+	"github.com/devrajsinghrawat/invite_app/src/db"
+	"github.com/devrajsinghrawat/invite_app/src/logging"
+	"github.com/devrajsinghrawat/invite_app/src/middleware"
+	"github.com/devrajsinghrawat/invite_app/src/model"
+	"github.com/devrajsinghrawat/invite_app/src/repo"
+	"github.com/devrajsinghrawat/invite_app/src/service"
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 )

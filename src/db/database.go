@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/girishg4t/app_invite_service/pkg/model"
+	"github.com/devrajsinghrawat/invite_app/src/model"
 	"github.com/jinzhu/gorm"
 	migrate "github.com/rubenv/sql-migrate"
 	"go.uber.org/zap"

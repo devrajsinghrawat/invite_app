@@ -4,8 +4,8 @@ package repofakes
 import (
 	"sync"
 
-	"github.com/girishg4t/app_invite_service/pkg/model"
-	"github.com/girishg4t/app_invite_service/pkg/repo"
+	"github.com/devrajsinghrawat/invite_app/src/model"
+	"github.com/devrajsinghrawat/invite_app/src/repo"
 )
 
 type FakeIUser struct {

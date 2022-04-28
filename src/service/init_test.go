@@ -10,8 +10,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/girishg4t/app_invite_service/pkg/middleware"
-	"github.com/girishg4t/app_invite_service/pkg/model"
+	"github.com/devrajsinghrawat/invite_app/src/middleware"
+	"github.com/devrajsinghrawat/invite_app/src/model"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

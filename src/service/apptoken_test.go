@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/girishg4t/app_invite_service/pkg/model"
-	"github.com/girishg4t/app_invite_service/pkg/repo/repofakes"
-	"github.com/girishg4t/app_invite_service/pkg/service"
+	"github.com/devrajsinghrawat/invite_app/src/model"
+	"github.com/devrajsinghrawat/invite_app/src/repo/repofakes"
+	"github.com/devrajsinghrawat/invite_app/src/service"
 	"github.com/gorilla/mux"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -39,7 +39,7 @@ var _ = Describe("App Token tests", func() {
 		BeforeEach(func() {
 			os.Setenv("EXPIRE_IN_DAYS", "1")
 			var err error
-			req, err = http.NewRequest("POST", "http://localhost:8081/login", strings.NewReader(`{
+			req, err = http.NewRequest("POST", "http://localhost:8080/login", strings.NewReader(`{
 					"username": "admin",
 					"password": "admin",
 				}`))
@@ -47,7 +47,7 @@ var _ = Describe("App Token tests", func() {
 			Expect(err).NotTo(HaveOccurred())
 		})
 		It("generate the app token", func() {
-			req, err := http.NewRequest("GET", "http://localhost:8081/v1/api/genToken", nil)
+			req, err := http.NewRequest("GET", "http://localhost:8080/v1/api/genToken", nil)
 			Expect(err).NotTo(HaveOccurred())
 			req = req.WithContext(StubToken(adminToken))
 			appTokenSvc.GenToken(rr, req)
@@ -80,7 +80,7 @@ var _ = Describe("App Token tests", func() {
 				ExpDate:  time.Now(),
 				IsActive: true,
 			}, nil)
-			req, err := http.NewRequest("GET", "http://localhost:8081/validatetoken", nil)
+			req, err := http.NewRequest("GET", "http://localhost:8080/validatetoken", nil)
 			req = mux.SetURLVars(req, map[string]string{"appToken": "ZKww2WFHQfL"})
 			Expect(err).NotTo(HaveOccurred())
 			appTokenSvc.ValidateToken(rr, req)
@@ -92,7 +92,7 @@ var _ = Describe("App Token tests", func() {
 				ExpDate:  time.Now().AddDate(0, 0, 1),
 				IsActive: true,
 			}, nil)
-			req, err := http.NewRequest("POST", "http://localhost:8081/v1/api/invalidateToken", strings.NewReader(`{
+			req, err := http.NewRequest("POST", "http://localhost:8080/v1/api/invalidateToken", strings.NewReader(`{
 					"appToken": "admin"
 				}`))
 			Expect(err).NotTo(HaveOccurred())
@@ -106,7 +106,7 @@ var _ = Describe("App Token tests", func() {
 			allTokens = append(allTokens, model.AppToken{ExpDate: time.Now().AddDate(0, 0, 1),
 				IsActive: true})
 			fakeAppTokenRepo.GetAllAppTokenReturns(allTokens, nil)
-			req, err := http.NewRequest("GET", "http://localhost:8081/v1/api/getAllToken", nil)
+			req, err := http.NewRequest("GET", "http://localhost:8080/v1/api/getAllToken", nil)
 			Expect(err).NotTo(HaveOccurred())
 			req = req.WithContext(StubToken(adminToken))
 			appTokenSvc.GetAllAppToken(rr, req)

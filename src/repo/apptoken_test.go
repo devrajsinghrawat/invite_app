@@ -3,7 +3,7 @@ package repo_test
 import (
 	"time"
 
-	"github.com/girishg4t/app_invite_service/pkg/model"
+	"github.com/devrajsinghrawat/invite_app/src/model"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
